@@ -4,7 +4,7 @@ Scripts I use daily in my work environment. Why? Because I love scripts! :)
 
 ### p.sh
 
-Uses fzf to find and run npm scripts
+Uses [fzf](https://github.com/junegunn/fzf) to find and run npm scripts
 
 ```alias p="zsh ~/path/to/p.sh"```
 
