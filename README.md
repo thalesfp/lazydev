@@ -6,13 +6,17 @@ Scripts I use daily in my work environment. Why? Because I love scripts! :)
 
 Uses [fzf](https://github.com/junegunn/fzf) to find and run npm scripts
 
-```alias p="zsh ~/path/to/p.sh"```
+```bash
+alias p="zsh ~/path/to/p.sh"
+```
 
 ### commit.sh
 
-In my team, we need to prepend the Jira task ID in each commit, so I create this script to help me do not forget to do this.
+In my team, we need to prepend the Jira task ID in each commit message, so I created this script to help me with this.
 
-```alias co="zsh ~/path/to/commit.sh"```
+```bash
+alias co="zsh ~/path/to/commit.sh"
+```
 
 ### wakeup/sleep
 
