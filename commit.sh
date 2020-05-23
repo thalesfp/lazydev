@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 PARENT_TASK_FILE=~/.co_parent_task
 

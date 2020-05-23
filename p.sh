@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 if ! [[ -a package.json ]]; then
   echo "package.json not found"
@@ -15,4 +15,4 @@ if ! which fzf > /dev/null; then
   exit
 fi
 
-cat package.json | jq -r ".scripts | keys[]" | fzf | xargs npm run
+jq -r ".scripts | keys[]" package.json | fzf | xargs npm run
