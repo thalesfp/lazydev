@@ -1,6 +1,6 @@
 # lazydev
 
-Scripts I use daily in my work environment.
+Scripts I use daily in my work environment. Why? Because I love scripts! :)
 
 ### p.sh
 
