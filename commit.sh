@@ -2,6 +2,19 @@
 
 PARENT_TASK_FILE=~/.co_parent_task
 
+function confirm {
+  while :
+  do
+    printf '(y/n) '
+    read -r -k1 response
+    if [[ $response =~ ^[YyNn]$ ]]; then
+      break
+    else
+      echo
+    fi
+  done
+}
+
 if ! git rev-parse --is-inside-work-tree 1> /dev/null 2> /dev/null; then
   echo "not a git repository"
   exit
@@ -15,6 +28,9 @@ fi
 git status
 
 task=$(git symbolic-ref --short -q HEAD)
+
+printf "message: "
+read -r message
 
 if [[ -f $PARENT_TASK_FILE ]]; then
   parent_task=$(cat $PARENT_TASK_FILE)
@@ -53,12 +69,25 @@ elif [[ -n $confirm_task ]]; then
   task=$confirm_task
 fi
 
-printf "message: "
-read -r message
-
 echo
 echo git commit -m "\"$task: $message\""
-read -r
-
-git commit -m "$task: $message"
+printf 'commit? '
+confirm
 echo
+echo
+
+if [[ $response =~ ^[Yy]$ ]]; then
+  git commit -m "$task: $message"
+  echo
+else
+  exit
+fi
+
+printf 'push? '
+confirm
+echo
+echo
+
+if [[ $response =~ ^[Yy]$ ]]; then
+  git push
+fi
